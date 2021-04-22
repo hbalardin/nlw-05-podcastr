@@ -5,7 +5,7 @@ import { Header } from '../components/Header';
 import { Player } from '../components/Player';
 import { PlayerContext } from '../contexts/PlayerContext';
 
-import styles from '../styles/app.module.scss'
+import styles from '../styles/app.module.scss';
 
 function MyApp({ Component, pageProps }) {
   const [episodeList, setEpisodeList] = useState([]);
@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
     setCurrentEpisodeIndex(0);
     setIsPlaying(true);
   }
-  
+
   function togglePlay() {
     setIsPlaying(!isPlaying);
   }
@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }) {
 
       <div className={styles.wrapper}>
         <main>
-          <Header />
+          <Header /> 
           <Component {...pageProps} />
         </main>
         <Player />

@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from 'next/image';
 import { useContext, useEffect, useRef } from 'react';
 import Slider from 'rc-slider';
 
@@ -11,10 +11,10 @@ import styles from './styles.module.scss';
 export function Player() {
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  const { 
-    episodeList,
-    currentEpisodeIndex,
-    isPlaying,
+  const {
+    episodeList, 
+    currentEpisodeIndex, 
+    isPlaying, 
     togglePlay,
     setPlayingState,
   } = useContext(PlayerContext);
@@ -29,10 +29,12 @@ export function Player() {
     } else {
       audioRef.current.pause();
     }
-  }, [isPlaying])
+  }, [isPlaying]);
+
+
 
   const episode = episodeList[currentEpisodeIndex];
-
+ 
   return (
     <div className={styles.playerContainer}>
       <header>
@@ -42,20 +44,20 @@ export function Player() {
 
       {episode ? (
         <div className={styles.currentEpisode}>
-          <Image
-            width={592}
-            height={592} 
-            src={episode.thumbnail} 
-            alt={episode.title} 
-            objectFit="cover"
-          />
-          <strong>{episode.title}</strong>
-          <span>{episode.members}</span>
-        </div>
+        <Image 
+          width={592}
+          height={592}
+          src={episode.thumbnail}
+          alt={episode.title} 
+          objectFit="cover"
+        />
+        <strong>{episode.title}</strong>
+        <span>{episode.members}</span>
+      </div>
       ) : (
         <div className={styles.emptyPlayer}>
-          <strong>Selecione um podcast para ouvir</strong>
-        </div>
+        <strong>Selecione um podcast para ouvir</strong>
+      </div>
       )}
 
       <footer className={!episode ? styles.empty : ''}>
@@ -93,8 +95,8 @@ export function Player() {
             <img src="/play-previous.svg" alt="Tocar anterior" />
           </button>
           <button 
-            type="button"
-            className={styles.playButton}
+            type="button" 
+            className={styles.playButton} 
             disabled={!episode}
             onClick={togglePlay}
           >
